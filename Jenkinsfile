@@ -6,6 +6,6 @@ node('master'){
              sh 'mvn clean install sonar:sonar -Dsonar.password=admin -Dsonar.login=admin'
          }
    stage('Running java backend application'){
-             sh 'export JENKINS_NODE_COOKIE=dontKillMe ;nohup java -jar $WORKSPACE/target/*.jar &'
+             sh 'export JENKINS_NODE_COOKIE=dontKillMe ;nohup java -jar $WORKSPACE/target/*.jar -Dspring.profiles.active=uat &'
          }
 }
