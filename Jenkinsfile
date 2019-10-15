@@ -7,6 +7,6 @@ node('master'){
          }
    stage('Running java backend application'){
              sh 'export JENKINS_NODE_COOKIE=dontKillMe'
-             sh 'nohup java -jar $WORKSPACE/*.jar &'
+             sh 'nohup java -jar $WORKSPACE/target/*.jar &'
          }
 }
