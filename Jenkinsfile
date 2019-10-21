@@ -10,7 +10,7 @@ node('master'){
          }
    stage('SonarQube analysis') {
     withSonarQubeEnv('sonarqube') {
-        sh 'mvn clean package sonar:sonar -Dsonar.password=admin -Dsonar.login=admin'
+        sh 'mvn sonar:sonar -Dsonar.password=admin -Dsonar.login=admin'
     } // SonarQube taskId is automatically attached to the pipeline context
   }
    stage("Quality Gate"){
