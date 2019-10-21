@@ -9,7 +9,7 @@ node('master'){
              sh 'export JENKINS_NODE_COOKIE=dontKillMe ;nohup java -Dspring.profiles.active=dev -jar $WORKSPACE/target/*.jar &'
          }
    stage('SonarQube analysis') {
-    withSonarQubeEnv('My SonarQube Server') {
+    withSonarQubeEnv('sonarqube') {
         sh 'mvn clean package sonar:sonar -Dsonar.password=admin -Dsonar.login=admin'
     } // SonarQube taskId is automatically attached to the pipeline context
   }
