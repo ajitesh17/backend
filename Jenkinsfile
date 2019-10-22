@@ -1,4 +1,4 @@
-node('master'){
+ node('master'){
    
    stage('git checkout'){
                   git 'https://github.com/ajitesh17/INGPRODUCTS'
@@ -14,7 +14,7 @@ node('master'){
    
    stage("build & SonarQube analysis") {
               withSonarQubeEnv('sonarqube') {
-                 sh 'mvn sonar:sonar'
+                 sh 'mvn sonar:sonar -Dsonar.password=admin -Dsonar.login=admin -Dsonar.host.url=http://10.0.0.224:9000 -Dsonar.projectName=QA:ingproduct -Dsonar.projectKey=QA:com.hcl:ingproduct'
               }    
       }
       
