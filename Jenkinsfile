@@ -5,7 +5,7 @@
               }
    
    stage('java build'){
-             sh 'mvn clean install -Dmaven.tests.skip=true'
+             sh 'mvn clean install'
          }
    
    stage('Running java backend application'){
