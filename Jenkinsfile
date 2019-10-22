@@ -13,11 +13,9 @@ node('master'){
          }
    
    stage("build & SonarQube analysis") {
-          node {
               withSonarQubeEnv('sonarqube') {
                  sh 'mvn sonar:sonar'
               }    
-          }
       }
       
    stage("Quality Gate"){
