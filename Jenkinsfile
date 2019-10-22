@@ -1,11 +1,11 @@
- node('master'){
+  node('master'){
    
    stage('git checkout'){
                   git 'https://github.com/ajitesh17/INGPRODUCTS'
               }
    
    stage('java build'){
-             sh 'mvn clean install'
+             sh 'mvn clean install -Dmaven.tests.skip=true'
          }
    
    stage('Running java backend application'){
