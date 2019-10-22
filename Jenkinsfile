@@ -13,8 +13,8 @@
         sh 'mvn sonar:sonar -Dsonar.password=admin -Dsonar.login=admin'
     }
   }
-   stage("Quality Gate"){
-    timeout(time: 1, unit: 'MINUTES') {
+  stage("Quality Gate"){
+   timeout(time: 1, unit: 'MINUTES') {
     def qg = waitForQualityGate()
     if (qg.status != 'OK') {
         error "Pipeline aborted due to quality gate failure: ${qg.status}"
