@@ -1,4 +1,4 @@
-#node('master'){
+node('master'){
    stage('git checkout'){
                   git 'https://github.com/ajitesh17/INGPRODUCTS'
               }
