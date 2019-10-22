@@ -11,10 +11,8 @@ node('master'){
          }
    stage('SonarQube analysis') {
     withSonarQubeEnv('sonarqube') {
-        sh 'mvn sonar:sonar -Dsonar.password=admin -Dsonar.login=admin -Dsonar.host.url='+env.SONAR_URL+' - 
-            Dsonar.projectName=QA:ingproduct - 
-            Dsonar.projectKey=QA:com.hcl:ingproduct'
-            timeout(time: 1, unit: 'HOURS') {
+        sh 'mvn sonar:sonar -Dsonar.password=admin -Dsonar.login=admin -Dsonar.host.url='+env.SONAR_URL+' -Dsonar.projectName=QA:ingproduct -Dsonar.projectKey=QA:com.hcl:ingproduct'
+        timeout(time: 1, unit: 'HOURS') {
               script {
                     def qg = waitForQualityGate()
                     if (qg.status != 'OK') {
